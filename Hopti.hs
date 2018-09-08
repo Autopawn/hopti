@@ -17,6 +17,10 @@ vns ob (mv:mvs) s
     | otherwise = vns ob (mv : mvs) s'
     where s' = argmax ob (s : mv s)
 
+-- Greedy
+greedy :: (Eq s, Real o) => (s->o) -> (s->[s]) -> s
+greedy ob mv = vns ob [mv] []
+
 -- #####################
 -- Example: Knapsack problem:
 -- #####################
